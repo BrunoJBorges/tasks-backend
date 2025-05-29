@@ -25,8 +25,8 @@ pipeline {
             }
         }
         stage ('Deploy Frontend') {
-            dir('frontend') {
-                steps {
+            steps {
+                dir('frontend') {
                     git 'https://github.com/BrunoJBorges/tasks-frontend'
                     bat 'mvn clean package'
                     deploy adapters: [tomcat8(alternativeDeploymentContext: '', credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
@@ -35,5 +35,3 @@ pipeline {
         }
     }
 }
-
-git 'https://github.com/BrunoJBorges/tasks-frontend'
