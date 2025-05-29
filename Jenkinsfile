@@ -33,5 +33,13 @@ pipeline {
                 }
             }
         }
+        stage ('Functional Tests') {
+            steps {
+                dir('functional-test') {
+                    git branch: 'main', url: 'https://github.com/BrunoJBorges/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
