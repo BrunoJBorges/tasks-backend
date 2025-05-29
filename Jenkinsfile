@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-         stage ('Deploy Frontend') {
+        stage ('Deploy Frontend') {
             dir('frontend') {
                 steps {
                     git 'https://github.com/BrunoJBorges/tasks-frontend'
